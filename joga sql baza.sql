@@ -124,7 +124,7 @@ CREATE TABLE `polaznik` (
   PRIMARY KEY (`idPolaznik`),
   KEY `idKategorijaPolaznika` (`idKategorijaPolaznika`),
   CONSTRAINT `idKategorijaPolaznika` FOREIGN KEY (`idKategorijaPolaznika`) REFERENCES `kategorijapolaznika` (`idKategorijaPolaznika`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `polaznik` */
 
@@ -135,7 +135,7 @@ insert  into `polaznik`(`idPolaznik`,`ime`,`prezime`,`email`,`idKategorijaPolazn
 (4,'Tamara','Dragicevic','tamaradrag@gmail.com',3),
 (7,'Milica','Jokic','milicajokic@gmail.com',4),
 (8,'Jovana','Jakovljevic','jovanajakovljevic@gmail.com',1),
-(11,'student','studentic','student@gmail.com',4);
+(11,'student','studentic','studstud@gmail.com',4);
 
 /*Table structure for table `priznanica` */
 
@@ -153,12 +153,13 @@ CREATE TABLE `priznanica` (
   KEY `idInstruktorr` (`idInstruktor`),
   CONSTRAINT `idInstruktorr` FOREIGN KEY (`idInstruktor`) REFERENCES `instruktor` (`idInstruktor`),
   CONSTRAINT `idPolaznikk` FOREIGN KEY (`idPolaznik`) REFERENCES `polaznik` (`idPolaznik`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `priznanica` */
 
 insert  into `priznanica`(`idPriznanica`,`datumIzdavanja`,`popust`,`ukupanIznos`,`idInstruktor`,`idPolaznik`) values 
-(1,'0000-00-00',0,0,1,1);
+(1,'2026-06-23',12,6864,1,1),
+(4,'2026-06-19',0,0,2,7);
 
 /*Table structure for table `sertifikat` */
 
@@ -169,7 +170,7 @@ CREATE TABLE `sertifikat` (
   `naziv` varchar(255) NOT NULL,
   `jogaAkademija` varchar(255) NOT NULL,
   PRIMARY KEY (`idSertifikat`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `sertifikat` */
 
@@ -178,7 +179,9 @@ insert  into `sertifikat`(`idSertifikat`,`naziv`,`jogaAkademija`) values
 (2,'Sertifikat za instruktora Joge za decu','Kids Yoga Sparkle'),
 (3,'Sertifikat za instruktora Joge za trudnice','Integral Yoga Institute'),
 (4,'Sertifikat za instruktora Power joge','CorePower Yoga'),
-(5,'Sertifikat za instruktora Yin joge','Yoga Medicine');
+(5,'Sertifikat za instruktora Yin joge','Yoga Medicine'),
+(10,'k','k'),
+(11,'o','o');
 
 /*Table structure for table `stavkapriznanice` */
 
@@ -201,6 +204,10 @@ CREATE TABLE `stavkapriznanice` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `stavkapriznanice` */
+
+insert  into `stavkapriznanice`(`idPriznanica`,`rb`,`brojCasova`,`cena`,`iznosStavke`,`datumPocetka`,`datumZavrsetka`,`napomene`,`idJogaCas`) values 
+(1,1,3,1700,5100,'2026-06-23','2026-06-27','/',2),
+(1,2,2,1850,2700,'2026-07-01','2026-07-07','/',8);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
